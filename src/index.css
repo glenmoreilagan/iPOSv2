@@ -1,13 +1,222 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Raleway:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,300&display=swap");
+
+:root {
+  --main-font: Poppins, Roboto, Raleway, sans-serif;
+  --main-font-color: #2a3543;
+  --main-font-bgcolor: #F7F9FC;
+  --main-font-subcolor: #6187D8;
+  --main-font-weight-bold: 600;
+  --main-font-weight-thin: 100;
+  --main-box-shadow: 0 0.1px 1rem rgb(0 0 0 / 3%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--main-font);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #CCCCCC; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+}
+body {
+  font-family: poppins, poppins, sans-serif !important;
+  /* font-size: 16px; */
+  color: var(--main-font-color) !important;
+  background-color: var(--main-font-bgcolor);
+}
+
+.main {
+  /* display: flex; */
+  /* height: 100vh; */
+}
+
+.container.wrapper {
+  flex-grow: 1;
+  padding: 0 !important;
+}
+
+.container {
+  flex-grow: 1;
+  padding: 1em;
+}
+
+.div-content {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.sidebar {
+  /* width: 260px; */
+  min-width: 260px;
+  max-width: 260px;
+  flex-shrink: 0;
+  background-color: var(--main-font-bgcolor);
+  overflow: auto;
+  transition: margin-left .35s ease-in-out,left .35s ease-in-out, margin-right .35s ease-in-out,right .35s ease-in-out;
+  /* height: 100vh; */
+  height: 100vh;
+  max-height: calc(100vh + 160px);
+  border-right: 1px solid #DEDEDE;
+}
+
+.sidebar-item {
+  padding: .75em 1em;
+  display: block;
+  transition: background-color .15s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.sidebar-item:hover {
+  background-color: rgb(73, 83, 87, .1);
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  /* cursor: pointer; */
+  color: var(--main-font-color);
+  font-size: 15px;
+}
+.sidebar-title span i {
+  display: inline-block;
+  width: 1.5em;
+}
+.sidebar-title .toggle-btn {
+  cursor: pointer;
+  transition: transform .3s;
+}
+.sidebar-item.open > .sidebar-title .toggle-btn {
+  transform: rotate(180deg);
+}
+.sidebar-content {
+  padding-top: .25em;
+  height: 0;
+  overflow: hidden;
+}
+.sidebar-item.open > .sidebar-content {
+  height: auto;
+}
+
+.sidebar-item.plain {
+  color: var(--main-font-color);
+  font-size: 13px;
+  text-decoration: none;
+}
+.sidebar-item.plain:hover {
+  /* text-decoration: underline; */
+}
+.sidebar-item.plain i{
+  display: inline-block;
+  width: 1.7em;
+}
+
+.no-dropdown {
+  display: flex;
+  color: var(--main-font-color);
+  font-size: 15px;
+  text-decoration: none;
+}
+.no-dropdown i {
+  display: inline-block;
+  width: 1.5em;
+}
+
+.no-dropdown:hover {
+  color: var(--main-font-color);
+}
+
+
+.system-logo-title {
+  text-align: center;
+  padding: 50px 10px 50px 10px;
+  background: #E7E8E9;
+  color: #495057;
+}
+
+.system-logo-title h2 {
+  font-weight: 600;
+}
+
+.head-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 10px;
+  /* box-shadow: 0 0 2rem 0 rgb(41 48 66 / 10%) !important; */
+  background-color: #fff;
+}
+
+.head-nav .dropdown :is(a, ul, li) {
+  font-size: 13px !important;
+}
+
+.head-nav .dropdown :is(.btn:hover, .btn:focus) {
+  border-color: transparent !important;
+}
+
+.burger {
+  font-size: 36px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.div-table-responsive {
+  background: #fff;
+  padding: 1em;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  max-height: calc(100vh - 160px);
+}
+
+.div-table-responsive table thead tr th {
+  text-align: center;
+  font-size: 13px !important;
+}
+
+.div-table-responsive table tbody tr td {
+  font-size: 12px !important;
 }
